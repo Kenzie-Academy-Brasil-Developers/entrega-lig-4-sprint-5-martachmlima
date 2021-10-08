@@ -1,5 +1,4 @@
 
-//eventos menu
 let counterDisco = 1
 document.getElementById("jogar").addEventListener("click", function(){
    let interval = setInterval(iniciarjogo, 100)
@@ -87,7 +86,6 @@ document.getElementById("jogadores").addEventListener("click", function(){
 
 game = document.getElementById("gameSpace")
 
-// criando tabuleiro dinamicamente
 
 for( let i=1; i<=7;i++){
     let tabela = document.createElement("div")
@@ -101,14 +99,13 @@ for( let i=1; i<=7;i++){
     }
 }
 
-//estilizando borda do tabuleiro
 let filterarray = game.children
 filterarray[0].lastElementChild.style.borderRadius = "15px 0px 0px 0px"
 filterarray[6].lastElementChild.style.borderRadius = "0px 15px 0px 0px"
 filterarray[6].children[0].style.borderRadius = "0px 0px 15px 0px"
 filterarray[0].children[0].style.borderRadius = "0px 0px 0px 15px"
 
-//selecionando jogadores
+
 let player1 = "gatinhoPreto"
 let player2 = "gatinhoBranco2"
 let selecionado1 = document.getElementById(player1)
@@ -167,10 +164,6 @@ divPlayer2.addEventListener("click", function (e){
 
 })
 
-
-// função de criação de discos
-
-
 function CriarDisco(tabela){
     console.log(tabela.children)
 for(let i=0;i< tabela.children.length;i++){
@@ -216,8 +209,6 @@ if(counterDisco % 2 == 0){
     
 }
 
-
-// função captura o evento e alternar discos
 game.addEventListener('click', selecionar)
 
 function selecionar(e) {        
@@ -238,7 +229,6 @@ function selecionar(e) {
     vitoriaDiagonal()
 }
 
-// função verificar vitoria horizontal e vertical
 function verificaH(){
     let tabela = [...game.children]
     for(let i = 0; i < tabela.length ; i++){
@@ -268,15 +258,11 @@ function verificaH(){
  
 }
 
-
-//condição de vitoria diagonal
-
 function vitoriaDiagonal(){
     let array = game.children
       for(let i=0;i<array.length -4;i++){
      
         for(let k=0;k<array.length -3;k++){
-            //diagonal esquerda
             cell = array[k].children[i]
             if(cell.childElementCount !== 0){
                cell = cell.lastElementChild
@@ -299,7 +285,6 @@ function vitoriaDiagonal(){
          }
         }
         for(let x = array.length -1;x>2;x--){
-            //diagonal pra direita
             cellx = array[x].children[i]
             
             if(cellx.childElementCount !== 0){
@@ -366,8 +351,6 @@ function vitoriaDiagonal(){
                 criarMsg("empate")
             }
         }
-          
-     //função  de vitoria
 
         function criarMsg(cat){
             document.getElementById("gameSpace").style.display = "none"
@@ -446,7 +429,6 @@ function vitoriaDiagonal(){
 
            }
      if(cat != "empate"){
-           //criando rainbow
             let counter = 0
             let intervalo = setInterval(function(){
                 rainbow = document.createElement("div")
