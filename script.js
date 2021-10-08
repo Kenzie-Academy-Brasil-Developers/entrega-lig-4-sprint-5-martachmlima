@@ -165,7 +165,7 @@ divPlayer2.addEventListener("click", function (e){
 })
 
 function CriarDisco(tabela){
-    console.log(tabela.children)
+    
 for(let i=0;i< tabela.children.length;i++){
  if (tabela.children[i].childElementCount == 0){
     counterDisco++
