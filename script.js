@@ -171,8 +171,14 @@ divPlayer2.addEventListener("click", function (e){
 // função de criação de discos
 
 
-function CriarDisco(){
-counterDisco++
+function CriarDisco(tabela){
+    console.log(tabela.children)
+for(let i=0;i< tabela.children.length;i++){
+ if (tabela.children[i].childElementCount == 0){
+    counterDisco++
+    break
+ }
+}
 if(counterDisco % 2 != 0){
     let disco = document.createElement("img")
     if (player2 === "gatinhoPreto2"){
@@ -216,10 +222,11 @@ game.addEventListener('click', selecionar)
 
 function selecionar(e) {        
     let tabela = e.target.parentElement
-    let criaDisco = CriarDisco()
     if(tabela.classList.contains("cedula")){
       tabela = tabela.parentElement
     }
+    let criaDisco = CriarDisco(tabela)
+    console.log(tabela)
     for(let i = 5; i >= 0; i--){
         if(tabela.children[i].childElementCount == 0){
             tabela.children[i].appendChild(criaDisco)            
